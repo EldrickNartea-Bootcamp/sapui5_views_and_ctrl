@@ -3,7 +3,7 @@
     xmlns="sap.m"
     xmlns:f="sap.ui.layout.form"
     xmlns:core="sap.ui.core">
-    <Page id="page" title="{i18n>title}">
+    <Page id="page" title="{i18n>title}" floatingFooter="true">
     <VBox id = "idVbox" class = "sapUiSmallMargin" >
             <f:SimpleForm id="idSimpleForm" editable="true" layout="ResponsiveGridLayout" title="Details" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"> 
             <f:content>
@@ -63,7 +63,7 @@
                     </items>
                 </Table>            
     </VBox>
-    <footer >
+    <footer>
             <OverflowToolbar id="idOFTFooter"  >
                 <ToolbarSpacer id="idTSpacerFooter"/>
                 <Button id="idBtnCheckout" text="Check Out" tooltip="Check Out" press = "onPressCheckout"/>
