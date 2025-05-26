@@ -8,9 +8,20 @@ sap.ui.define([
         onInit() {},
 
         onAddItem: function () {
-            var oTextBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
-            var sMsg = oTextBundle.getText("addButtonMsg");
-            this.fnDisplayMsg(sMsg);
+            // var oTextBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
+            // var sMsg = oTextBundle.getText("addButtonMsg");
+            // this.fnDisplayMsg(sMsg);
+
+            if (!this.oDialog) {
+                // By using loadFragment, we are adding the fragment as a dependent to the View
+                // By doing so, we can use the functions inside the view's controller
+                this.oDialog = this.loadFragment({
+                    name: "zbtp.sapui5viewsandctrl.fragment.ProductDialog"
+                });
+            } 
+            this.oDialog.then(function(oDialog) {
+                oDialog.open();
+            });
         },
 
         fnDisplayMsg: function (sMsg) {
@@ -36,17 +47,33 @@ sap.ui.define([
             oCCLabel.setVisible(sSelectedKey === "CC");
             oCCInput.setVisible(sSelectedKey === "CC");
         },
+        onCloseDialog: function (){
+            this.getView().byId("idProductDialog").close();
+        },
 
-        onPressCheckout: function () {
-            var oView = this.getView();
-            var sFName = oView.byId("idInptFName").getValue();
-            var sLName = oView.byId("idInptLName").getValue();
+        onPressCheckout: function (){
+            var oInputFName = this.getView().byId("idInptFName");
+            var oInputLName = this.getView().byId("idInptLName");
+            var oInputFNameValue = oInputFName.getValue();
+            var oInputLNameValue = oInputLName.getValue();
+            var oRouter = this.getOwnerComponent().getRouter();
 
-            if (!sFName && !sLName) {
-                var oTextBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
-                var sMsg = oTextBundle.getText("requiredFieldMsg");
-                MessageToast.show(sMsg);
+            // Check if first name and last name is blank
+            if (oInputFNameValue === "" || oInputLNameValue === ""){
+               
+            // set value state to Error
+                oInputFName.setValueState("Error");
+                oInputLName.setValueState("Error");
+            } else {
+                oInputFName.setValueState("None");
+                oInputLName.setValueState("None");
+
+                //Navigate to review page passing first
+                oRouter.navTo("RouteReviewPage", {
+                    firstName: oInputFNameValue
+                });
+
             }
-        }
+        },
     });
 });

@@ -22,9 +22,17 @@
                         </Select>
                             <Label id="idLblPhone" text="Mobile Number" visible="false"/>
                             <Input id="idInputPhone" value="" visible="false"/>
+
+                            
+                            <Label id="idLblCC" text="Credit Card Number" visible="false"/>
+                            <Input id="idInputCC" value="" visible="false"/>
+
             </f:content>
-            </f:SimpleForm>
-        <Table id="idTableSCart" inset="false">
+                 </f:SimpleForm>
+            <core:Fragment fragmentName="zbtp.sapui5viewsandctrl.fragment.ShoppingCart" type="XML" />
+
+            
+        <!-- <Table id="idTableSCart" inset="false">
                     <headerToolbar>
                         <OverflowToolbar id="idOFT">
                             <content>
@@ -61,7 +69,7 @@
                             </cells>
                         </ColumnListItem>
                     </items>
-                </Table>            
+                </Table>             -->
     </VBox>
     <footer>
             <OverflowToolbar id="idOFTFooter"  >

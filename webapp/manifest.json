@@ -88,6 +88,34 @@
         }
       }
     },
+
+    "routes": [
+                {
+                    "name": "RouteView1",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetView1"
+                    ]
+                },
+                {
+                    "name": "RouteReviewPage",
+                    "pattern": "Review/{firstName}",
+                    "target": ["TargetReviewPage"]
+                }
+            ],
+            "targets": {
+                "TargetMainView": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View1",
+                    "viewName": "View1"
+                },
+                "TargetReviewPage": {
+                    "viewId": "ReviewPage",
+                    "viewName": "ReviewPage"
+                }
+            },
     "rootView": {
       "viewName": "zbtp.sapui5viewsandctrl.view.App",
       "type": "XML",
