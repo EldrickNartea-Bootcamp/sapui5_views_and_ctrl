@@ -72,50 +72,36 @@
         "async": true,
         "viewPath": "zbtp.sapui5viewsandctrl.view"
       },
-      "routes": [
+"routes": [
         {
-          "name": "RouteView1",
+          "name": "RouteMainView",
           "pattern": ":?query:",
           "target": [
-            "TargetView1"
+            "TargetMainView"
+          ]
+        },
+        {
+          "name": "RouteReviewPage",
+          "pattern": "Review/{firstName}",
+          "target": [
+            "TargetReviewPage"
           ]
         }
       ],
       "targets": {
-        "TargetView1": {
-          "id": "View1",
-          "name": "View1"
-        }
-      }
+          "TargetMainView": {
+              "viewType": "XML",
+              "transition": "slide",
+              "clearControlAggregation": false,
+                  "viewId": "View1",
+                  "viewName": "View1"
+                },
+          "TargetReviewPage": {
+              "viewId": "ReviewPage",
+              "viewName": "ReviewPage"
+                }
+            }
     },
-
-    "routes": [
-                {
-                    "name": "RouteView1",
-                    "pattern": ":?query:",
-                    "target": [
-                        "TargetView1"
-                    ]
-                },
-                {
-                    "name": "RouteReviewPage",
-                    "pattern": "Review/{firstName}",
-                    "target": ["TargetReviewPage"]
-                }
-            ],
-            "targets": {
-                "TargetMainView": {
-                    "viewType": "XML",
-                    "transition": "slide",
-                    "clearControlAggregation": false,
-                    "viewId": "View1",
-                    "viewName": "View1"
-                },
-                "TargetReviewPage": {
-                    "viewId": "ReviewPage",
-                    "viewName": "ReviewPage"
-                }
-            },
     "rootView": {
       "viewName": "zbtp.sapui5viewsandctrl.view.App",
       "type": "XML",
