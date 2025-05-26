@@ -22,6 +22,10 @@
                         </Select>
                             <Label id="idLblPhone" text="Mobile Number" visible="false"/>
                             <Input id="idInputPhone" value="" visible="false"/>
+                            
+                            <Label id="idLblCC" text="Credit Card Number" visible="false"/>
+                            <Input id="idInputCC" value="" visible="false"/>
+
             </f:content>
             </f:SimpleForm>
         <Table id="idTableSCart" inset="false">

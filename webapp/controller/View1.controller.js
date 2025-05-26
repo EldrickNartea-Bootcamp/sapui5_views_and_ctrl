@@ -7,10 +7,25 @@ sap.ui.define([
     return Controller.extend("zbtp.sapui5viewsandctrl.controller.View1", {
         onInit() {},
 
-        onAddItem: function () {
-            var oTextBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
-            var sMsg = oTextBundle.getText("addButtonMsg");
-            this.fnDisplayMsg(sMsg);
+        onAddItem: function (){
+            // Comment this code for now
+            // var oTextBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
+            // var sMsg = oTextBundle.getText("addButtonMsg");
+            // this.fnDisplayMsg(sMsg);
+
+            // Instantiate the fragment
+
+            // create dialog lazily
+            if (!this.oDialog) {
+                // By using loadFragment, we are adding the fragment as a dependent to the View
+                // By doing so, we can use the functions inside the view's controller
+                this.oDialog = this.loadFragment({
+                    name: "zbtp.sapui5viewsandctrl"
+                });
+            } 
+            this.oDialog.then(function(oDialog) {
+                oDialog.open();
+            });
         },
 
         fnDisplayMsg: function (sMsg) {
@@ -21,7 +36,7 @@ sap.ui.define([
             var sSelectedKey = oEvent.getParameter("selectedItem").getKey();
             var sSelectedText = oEvent.getParameter("selectedItem").getText();
 
-            // Show MessageToast
+        
             MessageToast.show("Selected MOP: " + sSelectedText);
 
             var oView = this.getView();
@@ -47,6 +62,10 @@ sap.ui.define([
                 var sMsg = oTextBundle.getText("requiredFieldMsg");
                 MessageToast.show(sMsg);
             }
-        }
+        },
+        onCloseDialog: function (){
+            this.getView().byId("idProductDialog").close();
+        },
+
     });
 });
