@@ -45,7 +45,7 @@ sap.ui.define([
             var oCCLabel = oView.byId("idLblCC");
             var oCCInput = oView.byId("idInputCC");
 
-            oMobileLabel.setVisible(sSelectedKey === "GCASH");
+            oMobileLabel.setVisible(sSelectedKey === "GCASH"); 
             oMobileInput.setVisible(sSelectedKey === "GCASH");
 
             oCCLabel.setVisible(sSelectedKey === "CC");
