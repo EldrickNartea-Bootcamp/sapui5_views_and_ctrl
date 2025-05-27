@@ -33,5 +33,24 @@ sap.ui.define([
                     oRouter.navTo("RouteMainView", {}, true);
                 }
             },
+            onAddItem: function () {
+ 
+    
+                if (!this.oDialog) {
+                    this.oDialog = this.loadFragment({
+                        name: "zbtp.sapui5viewsandctrl.fragment.ProductDialog"
+                    });
+                } 
+                this.oDialog.then(function(oDialog) {
+                    oDialog.open();
+                });
+            },
+    
+            fnDisplayMsg: function (sMsg ) {
+                MessageToast.show(sMsg);
+            },
+            onCloseDialog: function (){
+                this.getView().byId("idProductDialog").close();
+            },
         });
     });
