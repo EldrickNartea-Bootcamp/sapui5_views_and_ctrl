@@ -1,1 +1,21 @@
 /* Enter your custom styles here */
+.sapMIBar.sapMFooter-CTX {
+    background-color: red;
+}
+.sapMBarLeft, .sapMBarRight, .sapMBarPH {
+    background-color: yellow;
+}
+html.sap-desktop .sapMIBar.sapMFooter-CTX {
+    background-color: #57cf4d;
+    
+}
+
+.sapMIBar-CTX .sapMTitle {
+    color: #bd14f1;
+}
+
+.sapMTB-Transparent-CTX .sapMTitle {
+    text-shadow: none;
+    color: pink;
+    background-color: black;
+}
